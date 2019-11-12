@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp" lang="en">
+
+<head>
+  <title>Temperature - Converter</title>
+  <!--Meta Tags-->
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="robots" content="noimageindex, noarchive, noindex, nofollow">
+  
+  <!-- Android  -->
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-title" content="Application Title">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Windows  -->
+  <meta name="msapplication-navbutton-color" content="#2549fa">
+  <meta name="msapplication-TileColor" content="#2549fa">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Pinned Sites  -->
+  <meta name="application-name" content="pickNpay">
+  <meta name="msapplication-tooltip" content="pickNpay">
+  <meta name="msapplication-starturl" content="/">
+  
+  <!-- Tap highlighting  -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <!-- UC Mobile Browser  -->
+  
+  <meta name="browsermode" content="application">
+  
+  <!-- Disable night mode for this page  -->
+  <meta name="nightmode" content="enable/disable">
+  
+  
+  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+  <!-- Layout mode -->
+  <meta name="layoutmode" content="fitscreen/standard">
+  
+  <!-- imagemode - show image even in text only mode  -->
+  <meta name="imagemode" content="force">
+  
+  <!-- Orientation  -->
+  <meta name="screen-orientation" content="portrait">
+  
+  <link rel="stylesheet" href="css/ionic.min.css ">
+
+  <link rel="stylesheet" href="css/css/ionic.min.css ">
+  
+  <style>
+    .form-display {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 65px;
+      box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .20);
+      padding: 80px;
+      border-radius: 7px;
+    }
+    
+    .pick-button {
+      background: #000000;
+      color: #ffffff;
+      border-radius: 7px;
+      margin: 5px;
+      font-weight: bolder;
+      border: 1px solid #000000;
+      
+    }
+    
+    #form-group {
+      border-bottom: 1px solid #bbb8b8;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 6px;
+      width: 100%;
+      < !-- border-radius: 7px;
+      -->margin-bottom: 15px;
+    }
+
+    .login-button {
+      background: #000000;
+      padding: 14px;
+      width: 100%;
+      border-radius: 7px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bolder;
+      border: 1px solid #000000;
+    }
+
+    p,
+    h1 {
+      text-align: center;
+    }
+
+    a,
+    a:hover,
+    a:link,
+    a:visited {
+      text-decoration: none;
+    }
+    select{
+      border: none;
+    }
+  </style>
+</head>
+
+<body ng-controller="myCtrl">
+
+  <div style="position:absolute; top:0; right:0; bottom:0; left:0; overflow-y:scroll; overflow-x:hidden">
+
+    <div class='form-display'>
+
+      <form action='index.html' method='post'>
+        
+        <h1 class="title">Temperature</h1>
+
+        <p>Converter</p>
+        <p>Before any conversion is done, you need to enter a temperature value you wanna convert. e.g 273, it will then convert it to Kelvin, Celsius and Fahenriet</p>
+        
+        <div id='form-group'>
+          <input type='number' placeholder='Enter Temperature Value' aria-required="true" required id='temp' style='width: 100%;' oninput="conVert()">
+        </div>   
+
+        <p id='solution' class='login-button'>Solution Will be Shown Here</p>
+      </form>
+
+      <div id='form-group'>
+        Developed With &hearts; by <a href="http://instagram.com/sedenucharles" target="_blank" rel='dofollow'>Sedenu Aloaye Charles</a>
+      </div>
+
+    </div>
+    
+  </div>
+
+</body>
+<!-- Javascript Begins -->
+<script>
+// Created a function to named conVert
+function conVert() {
+// Getting the input Box value
+let temp = document.getElementById('temp').value
+// Converting from Celsius to Fahrenheit
+let Celsius_to_F =   Math.floor(9/5*Number(temp) + 32);
+// Converting from Kelvin to Fahrenheit
+let Kelvin_to_F =  Math.floor(9/5*Number(temp- 273)+32);
+// Converting from Fahrenheit to Celsius 
+let F_to_Celsius = Math.floor(5 / 9 * Number(temp - 32));
+// Converting from Fahrenheit to Kelvin 
+let F_to_Kelvin = Math.floor(5 / 9 * Number(temp - 32) +273);
+// Converting from Celsius to Kelvin 
+let C_to_Kelvin = Number(temp) + 273;
+// Converting from Kelvin to Celsius 
+let K_to_Celsius = Number(temp) -273;
+// Getting The End Result
+document.getElementById("solution").innerHTML ='Celsius to Fahrenheit => '+ Celsius_to_F +'<sup>o</sup>F<br><p>Kelvin to Fahrenheit => '+ Kelvin_to_F+'<sup>o</sup>F</p>'+'<p>Fahrenheit to Celsius => '+ F_to_Celsius+'<sup>o</sup>C</p>' + '<p> Celsius to Kelvin => ' + K_to_Celsius + '<sup>o</sup>C</p>'+'<p> Kelvin to Fahrenheit => ' + F_to_Kelvin + 'K</p>' + '<p> Celsius to Kelvin => ' + C_to_Kelvin + 'K</p>';
+
+}
+</script>
+<!-- Javascript Ends -->
+</html>
